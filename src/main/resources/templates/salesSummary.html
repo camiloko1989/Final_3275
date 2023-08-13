@@ -10,22 +10,28 @@
 
     <div class="form-group row">
         <form method="post" th:action="@{/}">
-            <div class="fomr-group row">
-                <label>Salesman Name</label>
-                <input type="text" name="name" class="form-control" th:value="${salesman.name}">
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label">Salesman Name</label>
+                <div class="col-sm-2">
+                    <input type="text" name="name" class="form-control" th:value="${salesman.name}">
+                </div>
+                <label class="col-sm-1 col-form-label">Item Type</label>
+                <div class="col-sm-2">
+                    <select name="item" class="form-control" th:value="${salesman.item}">
+                        <option value="washingMachine">Washing Machine</option>
+                        <option value="refrigerator">Refrigerator</option>
+                        <option value="musicSystem">Music System</option>
+                    </select>
+                </div>
+                <label class="col-sm-1 col-form-label">Amount</label>
+                <div class="col-sm-2">
+                    <input type="number" name="amount" class="form-control" th:value="${salesman.amount}">
+                </div>
+                <label class="col-sm-1 col-form-label">Transaction Date<</label>
+                <div class="col-sm-2">
+                    <input type="date" name="dot" class="form-control" th:value="${#dates.format(salesman.dot, 'yyyy-MM-dd')}">
+                </div>
             </div>
-
-            <label>Item Type</label>
-            <select name="item" class="form-control" th:value="${salesman.item}">
-                <option value="washingMachine">Washing Machine</option>
-                <option value="refrigerator">Refrigerator</option>
-                <option value="musicSystem">Music System</option>
-            </select>
-            <label>Amount</label>
-            <input type="number" name="amount" class="form-control" th:value="${salesman.amount}">
-            <label>Transaction Date</label>
-            <input type="date" name="dot" class="form-control" th:value="${#dates.format(salesman.dot, 'yyyy-MM-dd')}">
-
             <br>
             <button type="submit" class="btn-primary" th:href="@{/}">Save</button>
         </form>
